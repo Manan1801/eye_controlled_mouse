@@ -100,8 +100,8 @@ while True:
                 left_blink_start_time = current_time
             elif current_time - left_blink_start_time >= BLINK_DURATION:
                 if current_time - last_left_blink_time > COOLDOWN:
-                    print("Left blink detected - selecting item")
-                    pyautogui.click()  # Simulate a click
+                    print("Left blink detected - left click")
+                    pyautogui.click(button='left')  # Simulate a left click
                     last_left_blink_time = current_time
                     left_blink_start_time = None
         else:
@@ -113,9 +113,8 @@ while True:
                 right_blink_start_time = current_time
             elif current_time - right_blink_start_time >= BLINK_DURATION:
                 if current_time - last_right_blink_time > COOLDOWN:
-                    print("Right blink detected - opening Chrome")
-                    subprocess.Popen(["open", "-a", "Google Chrome"])  # Open Chrome
-                    open_bookmarks()  # Open bookmarks in Chrome
+                    print("Right blink detected - right click")
+                    pyautogui.click(button='right')  # Simulate a right click
                     last_right_blink_time = current_time
                     right_blink_start_time = None
         else:
